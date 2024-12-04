@@ -1,11 +1,10 @@
-import useSWR from "swr"
+import useSWR from "swr";
 
 async function fetchAPI(key) {
   const response = await fetch(key);
   const responseBody = await response.json();
   return responseBody;
 }
-
 
 export default function StatusPage() {
   return (
@@ -24,11 +23,11 @@ function UpdatedAt() {
 
   let updatedAtText = "Carregando...";
 
-  if(!isLoading && data) {
+  if (!isLoading && data) {
     updatedAtText = new Date(data.updated_at).toLocaleString("pt-BR");
   }
 
-  return <div>Última atualização: {updatedAtText}</div>
+  return <div>Última atualização: {updatedAtText}</div>;
 }
 
 function DatabaseStatus() {
