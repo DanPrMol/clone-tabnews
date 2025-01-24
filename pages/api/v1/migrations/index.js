@@ -27,11 +27,10 @@ async function getHandler(request, response) {
 
     const pendingMigrations = await migrationRunner({
       ...defaultMigrationOptions,
-      dbClient
+      dbClient,
     });
     return response.status(200).json(pendingMigrations);
-  }
-  finally {
+  } finally {
     await dbClient.end();
   }
 }
@@ -53,8 +52,7 @@ async function postHandler(request, response) {
     }
 
     return response.status(200).json(migratedMigrations);
-  }
-  finally {
+  } finally {
     await dbClient.end();
   }
 }
