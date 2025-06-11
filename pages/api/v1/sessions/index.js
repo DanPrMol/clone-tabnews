@@ -23,7 +23,7 @@ async function postHandler(request, response) {
   const setCookie = cookie.serialize("session_id", newSession.token, {
     path: "/",
     maxAge: session.EXPIRATION_IN_MILLISECONDS / 1000,
-    secure: process.env.NODE_ENV === "poduction",
+    secure: process.env.NODE_ENV === "production",
     httpOnly: true,
   });
   response.setHeader("Set-Cookie", setCookie);
