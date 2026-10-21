@@ -1,6 +1,6 @@
 import user from "models/user.js";
 import activation from "models/activation";
-import orchestrator from "tests/orchestrator,js";
+import orchestrator from "tests/orchestrator.js";
 import webserver from "infra/webserver";
 
 beforeAll(async () => {
@@ -39,8 +39,8 @@ describe("Use case: Registration Flow (all successful)", () => {
       id: createUserResponseBody.id,
       username: "RegistrationFlow",
       features: ["read:activation_token"],
-      createdAt: createUserResponseBody.created_at,
-      updatedAt: createUserResponseBody.updated_at,
+      created_at: createUserResponseBody.created_at,
+      updated_at: createUserResponseBody.updated_at,
     });
   });
 
@@ -49,7 +49,7 @@ describe("Use case: Registration Flow (all successful)", () => {
 
     expect(lastEmail.sender).toBe("<contato@dantabs.com>");
     expect(lastEmail.recipients[0]).toBe("<registration.flow@curso.dev>");
-    expect(lastEmail.subject).toBe("Ative seu cadastro no Dantabs!");
+    expect(lastEmail.subject).toBe("Ative sua conta no Dantabs!");
     expect(lastEmail.text).toContain("RegistrationFlow");
 
     activationTokenId = orchestrator.extractUUID(lastEmail.text);

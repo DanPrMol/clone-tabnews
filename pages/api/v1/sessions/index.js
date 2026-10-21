@@ -9,7 +9,7 @@ import { ForbiddenError } from "infra/errors";
 const router = createRouter();
 
 router.use(controller.injectAnonymousOrUser);
-router.post(controller.canRequest("create:session", postHandler));
+router.post(controller.canRequest("create:session"), postHandler);
 router.delete(deleteHandler);
 
 export default router.handler(controller.errorHandlers);

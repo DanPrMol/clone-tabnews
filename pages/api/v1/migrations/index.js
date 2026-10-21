@@ -5,7 +5,7 @@ import authorization from "models/authorization";
 
 const router = createRouter();
 
-router.user(controller.injectAnonymousOrUser);
+router.use(controller.injectAnonymousOrUser);
 router.get(controller.canRequest("read:migration"), getHandler);
 router.post(controller.canRequest("create:migration"), postHandler);
 
