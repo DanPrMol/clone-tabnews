@@ -107,7 +107,7 @@ async function activateUserByUserId(userId) {
 
 async function sendEmailToUser(user, activationToken) {
   await email.send({
-    from: "Dantabs <contato@dantabs.com>",
+    from: "Dantabs <contato@dantabs.com.br>",
     to: user.email,
     subject: "Ative sua conta no Dantabs!",
     text: `${user.username}, clique no link abaixo para ativar seu cadastro no Dantabs:
